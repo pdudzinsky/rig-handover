@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-11-03
 ---
 
 # Morning digest
@@ -77,3 +78,18 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Run log reader | — | claude-code · opus-5.5 · medium | 2026-11-03 |
+| 2 | Digest page | #1 | claude-code · sonnet-5.5 · low | 2026-11-03 |
+| 3 | Digest JSON | #1, closes after #2 | claude-code · haiku-5.5 · low | 2026-11-03 |
+| 4 | Board link | #1, closes after #2 | claude-code · sonnet-5.5 · low | 2026-11-03 |
+| 5 | Route tests | #1, closes after #2, #3 | claude-code · sonnet-5.5 · low | 2026-11-03 |
+| 6 | Preview for review | #2–#5 | claude-code · sonnet-5.5 · max | 2026-11-03 |
+| 7 | Clean up | #6, review in | claude-code · sonnet-5.5 · max | 2026-11-03 |
+
+#3, #4 and #5 started together with #2 but stayed open until its page was in, because their "Done when" needed it. #2 got one follow-up commit from review: the flag column needed a header and a dash.
+The preview lives in its own repo, `pdudzinsky/rig-preview`, never in this one. The marker came off after the review. See ADR 0003.
