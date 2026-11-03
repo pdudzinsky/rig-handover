@@ -24,7 +24,7 @@ export function DigestPage({ digest }: { digest: Digest }) {
               <th>last error</th>
               <th>first</th>
               <th>last</th>
-              <th></th>
+              <th>flag</th>
             </tr>
           </thead>
           <tbody>
@@ -38,7 +38,7 @@ export function DigestPage({ digest }: { digest: Digest }) {
                 <td>{r.lastError ?? dash}</td>
                 <td>{r.first}</td>
                 <td>{r.last}</td>
-                <td class="warn">{marked(r.retries, r.lastStatus) ? 'check' : ''}</td>
+                {marked(r.retries, r.lastStatus) ? <td class="warn">check</td> : <td>{dash}</td>}
               </tr>
             ))}
           </tbody>
